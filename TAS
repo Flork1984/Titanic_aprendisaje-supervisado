@@ -1,0 +1,32 @@
+##Primero Importo las bibliotecas 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+##Luego  cargo los datos titanic en pandas 
+
+df = pd.read_csv("train.csv")
+
+##Validare los datos con la funcion head()
+df.head()
+
+
+##veo los 5 primeros datos 
+
+##validare mas informacion sobre las columnas, tipo de dato, funcion 
+df.info()
+
+##Visualizo características creando un histograma de la edad de los pasajeros 
+
+df["Age"].hist(bins=20)
+plt.xlabel("Age")
+plt.ylabel("Count")
+plt.show()
+
+##Creare un diagrama de barras vara identificar los pasajeros que sobrevivieron y los que no 
+
+survived_counts = df["Survived"].value_counts()
+plt.bar(survived_counts.index, survived_counts.values)
+plt.xticks([0,1], ["Not Survived" , "Survived"] )
+plt.ylabel("Count")
+plt.show()
